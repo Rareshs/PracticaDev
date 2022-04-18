@@ -13,7 +13,8 @@ pipeline {
     stages {
         stage('push') {
             steps {
-                sh "echo $dockerhub_PSW | docker login -u $dockerhub_USER --password-stdin"
+                sh "env"
+                sh "echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin"
                 sh 'make demo-app-push'
             }
         }
