@@ -5,8 +5,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'make demo-app-build'
             }
+        }
+    stages {
+        stage('build') {
+            steps {
+                sh 'make demo-app-push'
         }
     }
 }
