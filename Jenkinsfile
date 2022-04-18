@@ -1,9 +1,14 @@
 pipeline {
-    agent { 
+    agent any 
         evniroment{
             dockerhub=credentials('docker')
-        docker { image 'python:3.10.1-alpine' } 
-    }
+        } 
+    stages{
+        stage('checkout') {
+            steps{
+                checkout scm
+            }
+        }
     stages {
         stage('build') {
             steps {
@@ -20,4 +25,3 @@ pipeline {
           }
         }
       }
-    }
