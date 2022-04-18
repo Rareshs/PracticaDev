@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         evniroment{
-            docker-hubcredentials('docker')
+            dockerhub=credentials('docker')
         docker { image 'python:3.10.1-alpine' } 
     }
     stages {
