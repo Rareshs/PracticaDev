@@ -11,7 +11,7 @@ services:
      - 50000:50000
     container_name: jenkins
     volumes:
-     #- "$PWD/jenkins/jenkins_configuration:/var/jenkins_home"
+     - "$PWD/jenkins/jenkins_configuration:/var/jenkins_home"
      - /var/run/docker.sock:/var/run/docker.sock
      - /usr/local/bin/docker:/usr/local/bin/docker
 
@@ -19,47 +19,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: pregatit-demo-app-python
+    image: zmihai/pregatit-demo-app-python
     ports:
      - 5000:5000
     container_name: demo-app-python
-    
-    version: '3.7'
-
-services:
-
-  # Elasticsearch Docker Images: https://www.docker.elastic.co/
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
-    container_name: elasticsearch
-    environment:
-      - xpack.security.enabled=false
-      - discovery.type=single-node
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    cap_add:
-      - IPC_LOCK
-    volumes:
-      - elasticsearch-data:/usr/share/elasticsearch/data
-    ports:
-      - 9200:9200
-      - 9300:9300
-
-  kibana:
-    container_name: kibana
-    image: docker.elastic.co/kibana/kibana:7.4.0
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    ports:
-      - 5601:5601
-    depends_on:
-      - elasticsearch
-
-volumes:
-  elasticsearch-data:
-    driver: local
