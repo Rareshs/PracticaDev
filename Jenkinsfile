@@ -18,7 +18,7 @@ pipeline {
             steps {
                 // sh "env"
                 sh "docker logout"
-                sh "echo 60ae6d5d-ee4b-4bfe-b546-285ef5b9a133 | docker login -u raresh25508 --password-stdin docker.io"
+                sh "echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin docker.io"
                 sh 'make demo-app-push'
             }
         }
