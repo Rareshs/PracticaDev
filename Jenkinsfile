@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        dockerhub=credentials('docker-hub-token')
+        dockerhub=credentials('60ae6d5d-ee4b-4bfe-b546-285ef5b9a133')
     }
     stages {
         stage('checkout') {
