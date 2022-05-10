@@ -21,7 +21,7 @@ data "aws_vpc" "default" {
 resource "aws_instance" "app_server" {
   ami           = "ami-09439f09c55136ecf"
   instance_type = "t2.micro"
-  key_name      = "pregatit"
+  key_name      = "aws-key"
 
   security_groups = [ aws_security_group.allow_ssh.name ]
 
