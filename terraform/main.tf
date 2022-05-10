@@ -19,8 +19,6 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
   key_name      = "aws-key"
 
-  security_groups = [ aws_security_group.allow_ssh.name ]
-
   tags = {
     Name = "prod-hosting-server"
   }
