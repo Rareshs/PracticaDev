@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 data "aws_vpc" "default" {
-  id = "vpc-fac00f90"
+  id = "vpc-024f214b4c15f53fa"
 }
 
 resource "aws_instance" "app_server" {
