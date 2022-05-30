@@ -11,7 +11,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'make pregatit-demo-app-python'
+                sh 'make demo-app-build'
             }
         }
         stage('push') {
@@ -19,7 +19,7 @@ pipeline {
                 // sh "env"
                 sh "docker logout"
                 sh "echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin docker.io"
-                sh 'make pregatit-demo-app-python'
+                sh 'make demo-app-push'
             }
         }
         stage('test') {
