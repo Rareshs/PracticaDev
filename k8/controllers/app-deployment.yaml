@@ -34,3 +34,15 @@ spec:
   selector:
     app: mentorat
   type: NodePort
+
+---
+  apiVersion: v1
+kind: Endpoints
+metadata:
+  # the name here should match the name of the Service
+  name: Service
+subsets:
+  - addresses:
+      - ip: 192.0.2.42
+    ports:
+      - port: 5000
