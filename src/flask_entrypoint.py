@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Salut, aplicatia merge!'
+    return 'Salut!'
 
 
 if __name__ == '__main__':
