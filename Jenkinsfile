@@ -11,15 +11,13 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t raresh25508/pregatit-demo-app-python'
+                sh 'echo building the app'
             }
         }
         stage('push') {
             steps {
                 // sh "env"
-                sh "docker logout"
-                sh "echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin docker.io"
-                sh 'docker push raresh25508/pregatit-demo-app-python'
+                sh 'echo pushing the app'
             }
         }
         stage('test') {
