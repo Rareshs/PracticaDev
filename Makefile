@@ -21,3 +21,6 @@ demo-app-stop:
 
 stop-all:
 	docker-compose -f docker-compose.yml stop
+
+start-all:
+	docker-compose -f docker-compose.yml start
