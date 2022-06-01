@@ -11,13 +11,15 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'echo building the app'
+                sh 'make demo-app-build'
             }
         }
         stage('push') {
             steps {
                 // sh "env"
-                sh 'echo pushing the app'
+                sh "docker logout"
+                sh "echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin docker.io"
+                sh 'make demo-app-push'
             }
         }
         stage('test') {
