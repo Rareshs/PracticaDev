@@ -27,10 +27,11 @@ pipeline {
                 sh "echo Executing testing stage..."
             }
         }
-        stage('deploy') {
-            steps {
-                sh "echo Executing deployment stage..."
-            }
+        stage('Deploy App') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "k8/controllers/app-deployment.yaml", kubeconfigId: "config")
         }
+      }
     }
 }
