@@ -28,10 +28,11 @@ pipeline {
             }
         }
         stage('Deploy App') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "k8/controllers/app-deployment.yaml", kubeconfigId: "config")
+            steps {
+                script {
+                    kubernetesDeploy(configs: "k8/controllers/app-deployment.yaml", kubeconfigId: "config")
+                }
+            }
         }
-      }
     }
 }
