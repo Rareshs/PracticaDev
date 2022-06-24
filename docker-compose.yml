@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: pregatit-demo-app-python
+    image: raresh25508/pregatit-demo-app-python
     ports:
      - 5000:5000
     container_name: demo-app-python
